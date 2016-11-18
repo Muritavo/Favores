@@ -1,4 +1,4 @@
-package com.paladino.favores;
+package com.paladino.favores.presentation;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.paladino.favores.R;
 
 public class FacebookLoginActivity extends AppCompatActivity {
     private LoginButton loginButton;
