@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Favores</string>
     <string name="facebook_app_id">206855829739560</string>
+    <string name="title_activity_painel_principal">MyFavores</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>
