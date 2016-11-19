@@ -12,6 +12,10 @@
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/com_facebook_loginview_default_style"
+        android:layout_marginBottom="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

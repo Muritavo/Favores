@@ -13,27 +13,27 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/button2">
+        android:layout_above="@+id/btn_logout">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
+            <com.facebook.login.widget.ProfilePictureView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/com_facebook_profile_picture_blank_square"
-                android:id="@+id/imageView"
+                android:id="@+id/image_profile_picture"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"/>
 
             <TextView
-                android:text="TextView"
+                android:text="Nome do carinha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/imageView"
+                android:layout_below="@+id/image_profile_picture"
                 android:layout_centerHorizontal="true"
-                android:id="@+id/textView6"
+                android:id="@+id/lbl_nome_usuario"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:textAppearance="@android:style/TextAppearance.Large" />
 
@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:stretchColumns="*"
-                android:layout_below="@+id/textView6"
+                android:layout_below="@+id/lbl_nome_usuario"
                 android:layout_alignParentStart="true">
 
                 <TableRow
@@ -88,24 +88,6 @@
                     android:layout_height="match_parent" >
 
                     <TextView
-                        android:text="Email:"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView3" />
-
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"
-                        android:ems="10"
-                        android:id="@+id/editText3" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-
-                    <TextView
                         android:text="Horário disponível:"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -123,7 +105,7 @@
     <com.facebook.login.widget.LoginButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button2"
+        android:id="@+id/btn_logout"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
