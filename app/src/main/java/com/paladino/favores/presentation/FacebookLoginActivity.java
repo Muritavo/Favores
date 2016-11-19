@@ -10,6 +10,8 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.Profile;
+import com.facebook.ProfileTracker;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -21,8 +23,6 @@ public class FacebookLoginActivity extends AppCompatActivity implements Facebook
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        FacebookSdk.sdkInitialize(getApplicationContext());
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facebook_login);
 
@@ -39,8 +39,24 @@ public class FacebookLoginActivity extends AppCompatActivity implements Facebook
 
     @Override
     public void onSuccess(LoginResult loginResult) {
-        Intent intent = new Intent(this, PainelPrincipalActivity.class);
+        if (Profile.getCurrentProfile() != null) {
+            goHome();
+        } else {
+            ProfileTracker profileTracker = new ProfileTracker() {
+                @Override
+                protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
+                    Profile.setCurrentProfile(currentProfile);
+                    goHome();
+                }
+            };
+            profileTracker.startTracking();
+        }
+    }
+
+    private void goHome() {
+        Intent intent = new Intent(FacebookLoginActivity.this, PainelPrincipalActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override
