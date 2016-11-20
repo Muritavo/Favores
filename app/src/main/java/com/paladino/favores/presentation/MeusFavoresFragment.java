@@ -1,6 +1,7 @@
 package com.paladino.favores.presentation;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -78,6 +79,13 @@ public class MeusFavoresFragment extends Fragment {
         class FavorHolder extends RecyclerView.ViewHolder {
             FavorHolder(View itemView) {
                 super(itemView);
+                itemView.findViewById(R.id.card_favor).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getActivity(), ConsultaFavorActivity.class);
+                        startActivity(intent);
+                    }
+                });
             }
         }
 

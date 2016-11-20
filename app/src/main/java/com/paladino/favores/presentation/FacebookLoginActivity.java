@@ -17,6 +17,8 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.paladino.favores.R;
 
+import java.util.Arrays;
+
 public class FacebookLoginActivity extends AppCompatActivity implements FacebookCallback<LoginResult> {
     private LoginButton loginButton;
     private CallbackManager callbackManager;
@@ -29,7 +31,7 @@ public class FacebookLoginActivity extends AppCompatActivity implements Facebook
         this.callbackManager = CallbackManager.Factory.create();
 
         loginButton = (LoginButton) findViewById(R.id.btn_login);
-        loginButton.setReadPermissions("email");
+        loginButton.setReadPermissions(Arrays.asList("email", "public_profile"));
 
         loginButton.registerCallback(callbackManager, this);
         if (AccessToken.getCurrentAccessToken() != null) {

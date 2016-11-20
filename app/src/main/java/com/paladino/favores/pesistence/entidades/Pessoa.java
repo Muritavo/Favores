@@ -19,7 +19,6 @@ public class Pessoa {
     public Pessoa(String nome, String email, CategoriaHorario turno){
         this.nome = nome;
         this.email = email;
-        this.senha = senha;
         this.turno = turno;
         favoresCriados = new ArrayList<Favor>();
     }
@@ -52,4 +51,9 @@ public class Pessoa {
         }
         return false;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
 }

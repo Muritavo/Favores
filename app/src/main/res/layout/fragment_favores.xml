@@ -18,7 +18,8 @@
             android:id="@+id/tabs_favores"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="0dp" />
+            android:elevation="0dp"
+            style="@style/Widget.Design.TabLayout" />
 
     </android.support.design.widget.AppBarLayout>
 
