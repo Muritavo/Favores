@@ -1,19 +1,11 @@
 package com.paladino.favores.pesistence.entidades;
 
-public class CategoriaHorario {
-    private int id;
-    private String horario;
+public enum CategoriaHorario {
+    Manha(1), Tarde(2), Noite(3);
 
-    public CategoriaHorario(int id, String horario) {
+    public int id;
+
+    CategoriaHorario(int id){
         this.id = id;
-        this.horario = horario;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getHorario() {
-        return horario;
     }
 }

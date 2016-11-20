@@ -1,5 +1,9 @@
 package com.paladino.favores.pesistence.entidades;
 
+/**
+ * Created by Paladino on 19/11/2016.
+ */
+
 public class Mensagem {
     private String mensagem;
 

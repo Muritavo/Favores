@@ -1,13 +1,17 @@
 package com.paladino.favores.pesistence.entidades;
 
-public class Endereço {
+/**
+ * Created by Paladino on 19/11/2016.
+ */
+
+public class Endereco {
     private int numero;
     private String rua;
     private String cidade;
     private String cep;
     private String estado;
 
-    public Endereço(int numero, String rua, String cidade, String cep, String estado) {
+    public Endereco(int numero, String rua, String cidade, String cep, String estado) {
         this.numero = numero;
         this.rua = rua;
         this.cidade = cidade;
@@ -34,6 +38,4 @@ public class Endereço {
     public String getEstado() {
         return estado;
     }
-    
-    
 }

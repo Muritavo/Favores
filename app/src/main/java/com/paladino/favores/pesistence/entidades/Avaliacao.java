@@ -1,6 +1,11 @@
 package com.paladino.favores.pesistence.entidades;
 
+/**
+ * Created by Paladino on 19/11/2016.
+ */
+
 public class Avaliacao {
+
     private int numAvaliacao;
     private int classificacao;
     private String comentario;
