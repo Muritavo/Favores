@@ -35,6 +35,8 @@ public class ConsultaFavorActivity extends AppCompatActivity {
             super(fm);
         }
 
+
+
         @Override
         public Fragment getItem(int position) {
             switch (position) {
