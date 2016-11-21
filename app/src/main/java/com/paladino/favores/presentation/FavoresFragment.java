@@ -1,7 +1,5 @@
 package com.paladino.favores.presentation;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -11,14 +9,12 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.paladino.favores.R;
 import com.paladino.favores.business.FavorBusiness;
 import com.paladino.favores.business.Favores;
 import com.paladino.favores.pesistence.entidades.Favor;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

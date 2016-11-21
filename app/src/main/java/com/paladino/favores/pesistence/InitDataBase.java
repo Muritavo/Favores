@@ -83,7 +83,6 @@ public class InitDataBase {
 
     public void addFavor(Favor favor){
         favoresParaMim.add(favor);
-
     }
 
     public List<Favor> getFavorByHorario(CategoriaHorario turno) {
