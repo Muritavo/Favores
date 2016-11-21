@@ -53,7 +53,6 @@ public class FavoresFragment extends Fragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        favores = new ArrayList<>(10);
     }
 
     @Override

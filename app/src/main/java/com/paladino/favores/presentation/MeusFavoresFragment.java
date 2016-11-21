@@ -80,6 +80,13 @@ public class MeusFavoresFragment extends Fragment {
                 return false;
             }
         });
+        view.findViewById(R.id.imageButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), CadastroFavorActivity.class);
+                startActivityForResult(intent, 1);
+            }
+        });
         mAdapter = new RecyclerViewAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(mAdapter);
