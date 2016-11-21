@@ -26,7 +26,15 @@
             android:name=".presentation.PainelPrincipalActivity"
             android:label="@string/title_activity_painel_principal"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".presentation.ConsultaFavorActivity"></activity>
+        <activity android:name=".presentation.ConsultaFavorActivity" />
+        <activity
+            android:name=".presentation.CadastroFavorActivity"
+            android:label="@string/title_activity_cadastro_favor"
+            android:parentActivityName=".presentation.PainelPrincipalActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.paladino.favores.presentation.PainelPrincipalActivity" />
+        </activity>
     </application>
 
 </manifest>

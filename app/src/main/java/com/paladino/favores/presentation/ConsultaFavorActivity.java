@@ -39,7 +39,7 @@ public class ConsultaFavorActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return FavorFragment.newInstance(null);
+                    return MeuFavorFragment.newInstance(null);
                 case 1:
                     return VoluntariosFragment.newInstance();
             }

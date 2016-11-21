@@ -1,7 +1,5 @@
 package com.paladino.favores.presentation;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,27 +13,27 @@ import com.paladino.favores.pesistence.entidades.Favor;
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
  * to handle interaction events.
- * Use the {@link FavorFragment#newInstance} factory method to
+ * Use the {@link MeuFavorFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FavorFragment extends Fragment {
+public class MeuFavorFragment extends Fragment {
     private Favor favor;
 
-    public FavorFragment() {
+    public MeuFavorFragment() {
     }
 
-    public FavorFragment(Favor favor) {
+    public MeuFavorFragment(Favor favor) {
         this.favor = favor;
     }
 
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
-     * @return A new instance of fragment FavorFragment.
+     * @return A new instance of fragment MeuFavorFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FavorFragment newInstance(Favor favor) {
-        FavorFragment fragment = new FavorFragment(favor);
+    public static MeuFavorFragment newInstance(Favor favor) {
+        MeuFavorFragment fragment = new MeuFavorFragment(favor);
         return fragment;
     }
 

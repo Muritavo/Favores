@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.paladino.favores.R;
+import com.paladino.favores.business.FavorBusiness;
 import com.paladino.favores.business.Favores;
 import com.paladino.favores.pesistence.entidades.Favor;
 
@@ -31,8 +32,10 @@ public class FavoresFragment extends Fragment implements
         MeusFavoresFragment.MeusFavoresFragmentInterface,
         FavoresParaMimFragment.FavoresParaMimFragmentInterface{
     private List<Favores> favores;
+    private FavorBusiness favorBusiness;
 
     public FavoresFragment() {
+        favorBusiness = new FavorBusiness();
         // Required empty public constructor
     }
 
@@ -99,26 +102,22 @@ public class FavoresFragment extends Fragment implements
     }
 
     @Override
-    public List<Favor> geMeusFavores() {
-        ArrayList<Favor> meusFavores = new ArrayList<>(5);
-        meusFavores.add(null);
-        meusFavores.add(null);
-        meusFavores.add(null);
-        meusFavores.add(null);
-        meusFavores.add(null);
-        //TODO Realizar a lógica que busca os meus favores na lista de favores
-        return meusFavores;
+    public List<Favor> getMeusFavores() {
+        return favorBusiness.pesquisarMeusFavores("");
+    }
+
+    @Override
+    public List<Favor> getMeusFavores(String searchQuery) {
+        return favorBusiness.pesquisarMeusFavores(searchQuery);
     }
 
     @Override
     public List<Favor> getFavoresParaMim() {
-        ArrayList<Favor> favoresParaMim = new ArrayList<>(5);
-        favoresParaMim.add(null);
-        favoresParaMim.add(null);
-        favoresParaMim.add(null);
-        favoresParaMim.add(null);
-        favoresParaMim.add(null);
-        //TODO Realizar a lógica que busca os meus favores na lista de favores
-        return favoresParaMim;
+        return favorBusiness.pesquisaFavor("");
+    }
+
+    @Override
+    public List<Favor> getFavoresParaMim(String request) {
+        return favorBusiness.pesquisaFavor(request);
     }
 }

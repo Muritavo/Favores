@@ -25,6 +25,10 @@ public class FavorBusiness {
         return bd.getFavorByHorario(turno);
     }
 
+    public List<Favor> pesquisarMeusFavores(String contains) {
+        return bd.getMeusFavoresByName(contains);
+    }
+
     public Favor acompanharFavor(int idFavor){
         return bd.getFavorById(idFavor);
     }

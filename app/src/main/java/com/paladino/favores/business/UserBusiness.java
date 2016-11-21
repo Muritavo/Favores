@@ -25,6 +25,7 @@ public class UserBusiness {
         parameter.putString("fields", "id, first_name, last_name, email, location");
         graphRequest.setParameters(parameter);
         JSONObject usuario = graphRequest.executeAndWait().getJSONObject();
+        Log.d("Facebook", usuario.toString());
         return new Pessoa(usuario.getString("first_name"), usuario.getString("email"), CategoriaHorario.Tarde);
     }
 }

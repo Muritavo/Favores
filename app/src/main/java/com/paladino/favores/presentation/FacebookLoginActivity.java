@@ -12,6 +12,7 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
 import com.facebook.ProfileTracker;
+import com.facebook.internal.PermissionType;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -31,7 +32,7 @@ public class FacebookLoginActivity extends AppCompatActivity implements Facebook
         this.callbackManager = CallbackManager.Factory.create();
 
         loginButton = (LoginButton) findViewById(R.id.btn_login);
-        loginButton.setReadPermissions(Arrays.asList("email", "public_profile"));
+        loginButton.setReadPermissions(Arrays.asList("email", "public_profile", "user_status"));
 
         loginButton.registerCallback(callbackManager, this);
         if (AccessToken.getCurrentAccessToken() != null) {

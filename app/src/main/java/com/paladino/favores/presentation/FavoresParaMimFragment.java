@@ -8,9 +8,11 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.paladino.favores.R;
 import com.paladino.favores.pesistence.entidades.Favor;
@@ -27,6 +29,7 @@ import java.util.List;
 public class FavoresParaMimFragment extends Fragment {
     private FavoresParaMimFragmentInterface fragmentInterface;
     private List<Favor> favoresParaMim;
+    private FavoresParaMimAdapter mAdapter;
 
     public FavoresParaMimFragment() {
         // Required empty public constructor
@@ -58,8 +61,22 @@ public class FavoresParaMimFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_favores_para_mim, container, false);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.lista_favores);
+        ((SearchView)view.findViewById(R.id.search_bar)).setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                favoresParaMim = fragmentInterface.getFavoresParaMim(newText);
+                mAdapter.notifyDataSetChanged();
+                return false;
+            }
+        });
+        mAdapter = new FavoresParaMimAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(new FavoresParaMimAdapter());
+        recyclerView.setAdapter(mAdapter);
         return view;
     }
 
@@ -71,6 +88,7 @@ public class FavoresParaMimFragment extends Fragment {
 
     public interface FavoresParaMimFragmentInterface {
         List<Favor> getFavoresParaMim();
+        List<Favor> getFavoresParaMim(String request);
     }
 
     public class FavoresParaMimAdapter extends RecyclerView.Adapter<FavoresParaMimAdapter.FavorHolder> {
@@ -82,6 +100,9 @@ public class FavoresParaMimFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(FavorHolder holder, int position) {
+            holder.favor = favoresParaMim.get(position);
+            holder.tituloFavor.setText(holder.favor.getTitulo());
+            holder.descricaoFavor.setText(holder.favor.getDescricao());
         }
 
         @Override
@@ -91,6 +112,9 @@ public class FavoresParaMimFragment extends Fragment {
 
         class FavorHolder extends RecyclerView.ViewHolder {
             Favor favor;
+            TextView tituloFavor;
+            TextView descricaoFavor;
+
             FavorHolder(View itemView) {
                 super(itemView);
                 itemView.findViewById(R.id.card_favor).setOnClickListener(new View.OnClickListener() {
@@ -100,6 +124,8 @@ public class FavoresParaMimFragment extends Fragment {
                         startActivity(intent);
                     }
                 });
+                tituloFavor = (TextView) itemView.findViewById(R.id.lbl_titulo_favor);
+                descricaoFavor = (TextView) itemView.findViewById(R.id.lbl_descricao_favor);
             }
         }
     }
