@@ -29,7 +29,7 @@ public class UserBusiness {
             graphRequest.setParameters(parameter);
             JSONObject jsonUsuario = graphRequest.executeAndWait().getJSONObject();
             Log.d("Facebook", jsonUsuario.toString());
-            usuario = new Pessoa(jsonUsuario.getString("first_name"), jsonUsuario.getString("email"), CategoriaHorario.Tarde);
+            usuario = new Pessoa(jsonUsuario.getString("first_name"), jsonUsuario.getString("email"), CategoriaHorario.Manha);
             return usuario;
         } else {
             return usuario;

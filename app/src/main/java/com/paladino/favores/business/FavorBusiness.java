@@ -42,7 +42,7 @@ public class FavorBusiness {
     }
 
     public List<Favor> getFavoresSugeridos(CategoriaHorario turno){
-        return bd.getFavorByTurno();
+        return bd.getFavorByTurno(turno);
     }
 
 

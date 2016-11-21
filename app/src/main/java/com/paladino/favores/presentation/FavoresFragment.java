@@ -1,5 +1,7 @@
 package com.paladino.favores.presentation;
 
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -9,12 +11,19 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.paladino.favores.R;
 import com.paladino.favores.business.FavorBusiness;
 import com.paladino.favores.business.Favores;
+import com.paladino.favores.business.UserBusiness;
+import com.paladino.favores.pesistence.entidades.CategoriaHorario;
 import com.paladino.favores.pesistence.entidades.Favor;
 
+import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -108,7 +117,15 @@ public class FavoresFragment extends Fragment implements
 
     @Override
     public List<Favor> getFavoresParaMim() {
-        return favorBusiness.pesquisaFavor("");
+        try {
+            return favorBusiness.getFavoresSugeridos((CategoriaHorario) UserBusiness.getUser().getTurno());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return Collections.EMPTY_LIST;
     }
 
     @Override

@@ -14,7 +14,6 @@ public class InitDataBase {
     private static List<Favor> favoresParaMim;
     private static List<Favor> meusFavores;
     private static List<Pessoa> pessoas;
-    private List<Favor> favorByTurno;
 
     public InitDataBase(){
         favoresParaMim = new ArrayList<Favor>();
@@ -95,8 +94,15 @@ public class InitDataBase {
         return achados;
     }
 
-    public List<Favor> getFavorByTurno() {
-        return favorByTurno;
+    public List<Favor> getFavorByTurno(CategoriaHorario turno) {
+        List<Favor> achados = new ArrayList<Favor>();
+        for (Favor f: favoresParaMim) {
+            if(f.getTurno() == turno){
+                achados.add(f);
+            }
+        }
+
+        return achados;
     }
 
     public void addPessoa(Pessoa criadora) {
